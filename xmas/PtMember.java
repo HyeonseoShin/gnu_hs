@@ -6,24 +6,42 @@ public class PtMember extends MemberInfo
     int PTstartdate;
     int PTenddate;
 
-    PtMember(String name, int age, double mass, int PTstartdate, int PTenddate)
+    int getPTstartdate()
     {
-        super();
-        this.name=name;
-        this.age=age;
-        this.mass=mass;
-        this.PTstartdate=PTstartdate;
-        this.PTenddate=PTenddate;
+        return PTstartdate;
+    }
+    int getPTenddate()
+    {
+        return PTenddate;
     }
 
-    void printPTMember()
+    // Inputting the information of a PT Member
+    PtMember(String name, int age, double mass, int PTstartdate, int PTenddate)
     {
+        this.name=name;     // Name
+        this.age=age;       // Age
+        this.mass=mass;     // Weight
+        this.PTstartdate=PTstartdate;       // PT first day
+        this.PTenddate=PTenddate;           // PT Last day
+    }
+
+    // Printing the informaion of a PT Member
+    public void printInfo()
+    {
+        System.out.println("name: " + name);    // Name
+        System.out.println("age: " + age);      // Age
+        System.out.println("mass: " + mass);    // Weight
+        System.out.println("PT start: " + PTstartdate);// PT First day
+        System.out.println("PT finish: " + PTenddate); // PT Last day
         System.out.print("\n");
-        System.out.println("name: "+name);
-        System.out.println("age: "+age);
-        System.out.println("mass: "+mass);
-        System.out.println("PT start: "+PTstartdate);
-        System.out.println("PT finish: "+PTenddate);
-        System.out.print("\n");
+    }
+
+    // Printing the informaion of a PT Member
+    void printInfo(String onlystartdate)
+    {
+        System.out.println("name: " + name);    // Name
+        System.out.println("age: " + age);      // Age
+        System.out.println("mass: " + mass);    // Weight
+        System.out.println("PT start: " + PTstartdate);// PT First day
     }
 }

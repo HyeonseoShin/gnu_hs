@@ -3,52 +3,80 @@ package xmas;
 import java.util.Scanner;
 
 // Class for member information
-public class MemberInfo
+public class MemberInfo extends CommonMember
 {
-    String name;    // Declaring variable space to store names
-    int age;        // Declaring variable space to store age
-    double mass;    // Declaring variable space to store weight
-    Scanner input = new Scanner(System.in);     // Calling the Scanner method
+    protected String name;    // Declaring variable space to store names
+    protected int age;        // Declaring variable space to store age
+    protected double mass;    // Declaring variable space to store weight
 
-    MemberInfo()
+    Scanner input = new Scanner(System.in);     // 스캐너 불러오기
+
+    MemberInfo(String name, int age, double mass)
     {
-        // Declaring variables as a field variable
+        // 변수가 필드 변수임을 선언하기
         this.name = name;
         this.age = age;
         this.mass = mass;
     }
 
-    // Declaring the function that receives information
-    void setInfo()
+    MemberInfo(String name, int age)
     {
-        // Receiving name input
+        this.name = name;
+        this.age = age;
+    }
+
+    MemberInfo()
+    {
+
+    }
+
+    public int getAge()
+    {
+        return this.age;
+    }
+
+    public String getName()
+    {
+        return this.name;
+    }
+
+    public double getMass()
+    {
+        return this.mass;
+    }
+
+
+    // 정보를 입력받는 함수 선언하기
+    public void setInfo()
+    {
+        // 이름 입력받기
         System.out.println("name: ");
         this.name = input.next();
 
-        // Receiving age input
+        // 나이 입력받기
         System.out.println("age: ");
         this.age = input.nextInt();
 
-        // Receiving weight input
-        System.out.println("Weight: ");
+        // 몸무게 입력받기
+        System.out.println("mass: ");
         this.mass = input.nextDouble();
     }
 
-    // Declaring a function that outputs stored information
-    void printInfo()
+    // 저장된 정보를 출력하는 함수 선언하기
+    public void printInfo()
     {
         System.out.print("\n");
-        System.out.println("name: "+name);          // name
-        System.out.println("age: "+age);            // age
-        System.out.println("mass: "+mass);          // weight
+        System.out.println("name: "+name);          // 이름
+        System.out.println("age: "+age);            // 나이
+        System.out.println("mass: "+mass);          // 몸무게
         System.out.print("\n");
     }
 
-    // Setting default values to fill in empty information
-    void initInfo()
+    // 빈 정보를 채울 기본값 설정하기
+    public void initInfo()
     {
-        this.name = null;       // name
-        this.age = -1;          // age
-        this.mass = -1;         // weight
+        this.name = null;       // 이름
+        this.age = -1;          // 나이
+        this.mass = -1;         // 몸무게
     }
 }
