@@ -1,0 +1,42 @@
+2023-05-29 21:43:10    Show Menu
+2023-05-29 21:43:14    Menu 1
+2023-05-29 21:43:19    Menu1 : Add Free member
+2023-05-29 21:44:12   Member Added : 
+|| name : 김진호
+|| age : 22
+|| Start date : 20230501
+|| Available : 90 days
+2023-05-29 21:44:18    Menu1 : Add PT member
+2023-05-29 21:45:41   Member Added : 
+|| name : 유서준
+|| age : 20
+|| mass : 72.0
+|| PT start date : 20230301
+|| PT end date : 20230630
+2023-05-29 21:45:55    Menu1 : Add Free member
+2023-05-29 21:46:49   Member Added : 
+|| name : 하경수
+|| age : 25
+|| Start date : 20230301
+|| Available : 191 days
+2023-05-29 21:46:58    Show Menu
+2023-05-29 21:47:02     Menu 4: View Members
+2023-05-29 21:47:02    Show Menu
+2023-05-29 21:47:12  Menu 2
+2023-05-29 21:47:22  Menu : Delete Free member
+2023-05-29 21:47:27  Deleted Free member 1
+2023-05-29 21:47:27    Show Menu
+2023-05-29 21:47:35    Menu 3
+2023-05-29 21:47:43    Selected PT member : 1
+2023-05-29 21:48:09    Show Menu
+2023-05-29 21:48:19    Menu 3
+2023-05-29 21:48:27    Selected PT member : 1
+2023-05-29 21:48:55     Member Edited : 
+|| name : 류서준
+|| mass : 78.0
+|| PT start date : 20230301
+|| PT end date : 202306302023-05-29 21:48:55    Show Menu
+2023-05-29 21:48:59     Menu 4: View Members
+2023-05-29 21:48:59    Show Menu
+2023-05-29 21:49:21    Show Menu
+2023-05-29 21:49:34
