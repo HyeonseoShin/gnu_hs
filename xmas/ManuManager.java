@@ -1,5 +1,6 @@
 package xmas;
 
+import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,6 +14,14 @@ public class ManuManager
 {
     public static void main(String[] args)
     {
+        JFrame jf = new JFrame("Menu Manager");
+        GUITester panel = new GUITester();
+
+        panel.setSize(1000,500);
+
+        panel.setVisible(true);
+        System.out.println();
+
         Scanner input = new Scanner(System.in);
 
         ArrayList<PtMember> PtmemberList=new ArrayList<PtMember>();

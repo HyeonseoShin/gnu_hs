@@ -6,6 +6,10 @@ public class PtMember extends MemberInfo
     int PTstartdate;
     int PTenddate;
 
+    public PtMember() {
+
+    }
+
     int getPTstartdate()
     {
         return PTstartdate;
