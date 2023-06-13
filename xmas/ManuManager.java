@@ -14,14 +14,7 @@ public class ManuManager
 {
     public static void main(String[] args)
     {
-        JFrame jf = new JFrame("Menu Manager");
-        GUITester panel = new GUITester();
-
-        panel.setSize(1000,500);
-
-        panel.setVisible(true);
-        System.out.println();
-
+        System.out.print("\n");
         Scanner input = new Scanner(System.in);
 
         ArrayList<PtMember> PtmemberList=new ArrayList<PtMember>();
@@ -30,10 +23,17 @@ public class ManuManager
 
         int NumAccept = 0;
 
+        WindowFrame panel = new WindowFrame();
+        panel.setSize(1000,500);
+        panel.setVisible(true);
+
         while (true)
         {
             try
             {
+                panel.setWindowArrayPT(PtmemberList);
+                panel.setWindowArrayFree(FreememberList);
+
                 FileOutputStream fos = new FileOutputStream("LogFile.txt",true);
                 Date d1 = new Date();
                 String str1 = form.format(d1) +"    " + "Show Menu\n";
@@ -88,21 +88,28 @@ public class ManuManager
                                     System.out.println("나이, 이름, 몸무게, PTstart date, PTend date 를 입력하십시오.");
                                     System.out.println("0을 입력하시면 메뉴로 나갑니다.");
 
-                                    int mage = input.nextInt();
+                                    int mid = input.nextInt();
 
-                                    if (mage == 0)
+                                    if (mid == 0)
                                     {
                                         break;
                                     }
 
                                     else
                                     {
+                                        int mage = input.nextInt();
                                         String buffer = input.nextLine();
                                         String mname = input.nextLine();            // Receiving name input
                                         double mmass = input.nextDouble();          // Receiving weight input
                                         int mPTdate1 = input.nextInt();             // Receiving First day input
                                         int mPTdate2 = input.nextInt();             // Receiving Last day input
-                                        PtmemberList.add(new PtMember(mname, mage, mmass, mPTdate1, mPTdate2)); // Putting in Member Save List
+
+                                        if(mmass < 20 || mage < 1 || mage > 110 || mPTdate1 < 20000000 || mPTdate1 > 21000000 || mPTdate2 < 20000000 || mPTdate2 > 21000000 || mPTdate1 > mPTdate2)
+                                        {
+                                            throw new MyException();
+                                        }
+
+                                        PtmemberList.add(new PtMember(mid, mname, mage, mmass, mPTdate1, mPTdate2)); // Putting in Member Save List
 
                                         Date menu1PTmemb = new Date();
                                         String menu1PTmembinfo = form.format(menu1PTmemb) + "   Member Added : "+"\n|| name : "+mname+ "\n|| age : "+mage+"\n|| mass : "+mmass+"\n|| PT start date : "+mPTdate1+"\n|| PT end date : "+mPTdate2+"\n";
@@ -124,15 +131,16 @@ public class ManuManager
                                     System.out.println("나이, 이름, 이용 시작일, 결제 일수를 입력하십시오: ");
                                     System.out.println("0을 입력하시면 메뉴로 나갑니다.");
 
-                                    int mage = input.nextInt();
+                                    int mid = input.nextInt();
 
-                                    if (mage == 0)
+                                    if (mid == 0)
                                     {
                                         break;
                                     }
 
                                     else
                                     {
+                                        int mage = input.nextInt();
                                         String buffer = input.nextLine();
                                         String mname = input.nextLine();
                                         int mfst = input.nextInt();
@@ -143,7 +151,7 @@ public class ManuManager
                                             throw new MyException();
                                         }
 
-                                        FreememberList.add(new FreeMember(mname, mage, mfst, capable));
+                                        FreememberList.add(new FreeMember(mid, mname, mage, mfst, capable));
 
                                         Date menu1FRmemb = new Date();
                                         String menu1FRmemberinfo = form.format(menu1FRmemb)+"   Member Added : "+"\n|| name : "+mname+"\n|| age : "+mage+"\n|| Start date : "+mfst+"\n|| Available : "+capable+" days\n";
@@ -273,6 +281,11 @@ public class ManuManager
 
                         if(freeorpt==1)
                         {
+                            Date menu3PT = new Date();
+                            Date manu3PT = new Date();
+                            String menu3PTstr = form.format(menu3PT) + "    Menu 3: Edit PT Member\n";
+                            fos.write(menu3PTstr.getBytes());
+
                             System.out.printf("변경할 회원 번호를 입력하십시오: ");
                             int membernum = input.nextInt();        // Entering member number to change
 
@@ -286,7 +299,8 @@ public class ManuManager
                             fos.write(menu3PTmembnumstr.getBytes());
 
                             // Receiving changed member information
-                            System.out.println("변경할 회원 정보를 입력하십시오(나이, 이름, 몸무게, PTdate1, PTdate2): ");
+                            System.out.println("변경할 회원 정보를 입력하십시오(id, 나이, 이름, 몸무게, PTdate1, PTdate2): ");
+                            int mid = input.nextInt();          // Receiving id input
                             int mage = input.nextInt();         // Receiving age input
                             String buffer = input.nextLine();
                             String mname = input.nextLine();    // Receiving name input
@@ -301,7 +315,7 @@ public class ManuManager
 
                             // Putting the entered information into the list
                             PtmemberList.remove(membernum-1);
-                            PtmemberList.add(membernum-1, new PtMember(mname,mage,mmass,mPTstartdate,mPTenddate));
+                            PtmemberList.add(membernum-1, new PtMember(mid,mname,mage,mmass,mPTstartdate,mPTenddate));
 
                             Date menu3PTmemb = new Date();
                             String menu3PTmembinfo = form.format(menu3PTmemb)+"     Member Edited : "+"\n|| name : "+mname+"\n|| mass : "+mmass+"\n|| PT start date : "+mPTstartdate+"\n|| PT end date : "+mPTenddate;
@@ -328,7 +342,8 @@ public class ManuManager
                             String menu3FRmembenumstr = form.format(menu3FRmembnum) + "  Selected FR member : "+membernum+"\n";
                             fos.write(menu3FRmembenumstr.getBytes());
 
-                            System.out.println("변경할 회원 정보를 입력하십시오(나이, 이름, 이용 시작일, 결제 일수)");
+                            System.out.println("변경할 회원 정보를 입력하십시오(id, 나이, 이름, 이용 시작일, 결제 일수)");
+                            int mid = input.nextInt();
                             int mage = input.nextInt();
                             String buffer = input.nextLine();
                             String mname = input.nextLine();
@@ -341,7 +356,7 @@ public class ManuManager
                             }
 
                             FreememberList.remove(membernum-1);
-                            FreememberList.add(membernum-1, new FreeMember(mname, mage, mfirstdate, mcapable));
+                            FreememberList.add(membernum-1, new FreeMember(mid, mname, mage, mfirstdate, mcapable));
 
                             Date menu3FRmemb = new Date();
                             String menu3FRmembinfo = form.format(menu3FRmemb) + "     Member Edited : " + "\n|| name : " + mname + "\n|| age : " + mage + "\n|| Start date : " + mfirstdate + "\n|| Available : " + mcapable + " days\n";
@@ -463,6 +478,7 @@ public class ManuManager
             {
                 System.out.println("선택한 번호의 회원이 존재하지 않습니다. 메뉴로 돌아갑니다.");
                 System.out.println("==================================================");
+                e.printStackTrace();
                 continue;
             }
 

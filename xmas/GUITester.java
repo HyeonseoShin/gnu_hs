@@ -6,39 +6,43 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class GUITester extends JFrame implements ActionListener
+public class GUITester extends JPanel implements ActionListener
 {
+    WindowFrame frame;
+
     JPanel jp1 = new JPanel();
-    GridLayout grid = new GridLayout(2,2,20,50);
+    JPanel jp2 = new JPanel();
     JLabel lb1 = new JLabel("Health Club Member Management System");
+
+    ArrayList<PtMember> PtmemberList;
+    ArrayList<FreeMember> FreememberList;
+
     static JButton[] menu = new JButton[6];
     static String[] BtnText = {"1. Add Member", "2. Delete Member", "3. Edit Member", "4. View Member", "5.To menu", "6.Exit Program"};
 
-    ArrayList<PtMember> PtTestMem = new ArrayList<PtMember>();
-    PtMember PTM = new PtMember();
-
-    public GUITester()
+    public GUITester(WindowFrame frame, ArrayList<PtMember> PtMemberList, ArrayList<FreeMember> FreeMemberList)
     {
-        super("GUITester");
+        this.frame = frame;
+        this.PtmemberList=PtMemberList;
+        this.FreememberList = FreeMemberList;
+
+        this.setLayout(new BorderLayout());
 
         jp1.add(lb1);
 
         for (int i = 0; i < 6; i++)
         {
             menu[i] = new JButton(BtnText[i]);
-            menu[i].addActionListener(this);
-            menu[i].setPreferredSize(new Dimension(200,30));
+
             jp1.add(menu[i]);
         }
 
-        Container cp = getContentPane();
-        cp.add(jp1);
-        pack();
-    }
+        menu[0].addActionListener(this);
+        menu[3].addActionListener(new ButtonViewListener(frame));
 
-    PtMember getPtMem()
-    {
-        return PTM;
+        this.add(jp1, BorderLayout.NORTH);
+        this.add(jp2, BorderLayout.CENTER);
+        this.setVisible(true);
     }
 
     @Override
@@ -48,10 +52,9 @@ public class GUITester extends JFrame implements ActionListener
 
         if(bt == menu[0])
         {
-            bt.setText("You selected Menu 1!");
-            Menu1etc menu11 = new Menu1etc();
-            menu11.setVisible(true);
-            menu11.setSize(760,550);
+            ChoosePtorFree ptorfr = new ChoosePtorFree(frame);
+            ptorfr.setVisible(true);
+            ptorfr.setSize(760,550);
         }
 
         else if (bt == menu[1])
@@ -66,7 +69,9 @@ public class GUITester extends JFrame implements ActionListener
 
         else if (bt == menu[3])
         {
-            bt.setText("You selected menu 4!");
+            Menu4etc menu44 = new Menu4etc(frame, PtmemberList,FreememberList);
+            menu44.setVisible(true);
+            menu44.setSize(300,300);
         }
 
         else if (bt == menu[4])

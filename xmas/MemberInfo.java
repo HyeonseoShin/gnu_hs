@@ -7,16 +7,16 @@ public class MemberInfo extends CommonMember
 {
     protected String name;    // Declaring variable space to store names
     protected int age;        // Declaring variable space to store age
-    protected double mass;    // Declaring variable space to store weight
+    protected double weight;    // Declaring variable space to store weight
 
     Scanner input = new Scanner(System.in);     // 스캐너 불러오기
 
-    MemberInfo(String name, int age, double mass)
+    MemberInfo(String name, int age, double weight)
     {
         // 변수가 필드 변수임을 선언하기
         this.name = name;
         this.age = age;
-        this.mass = mass;
+        this.weight = weight;
     }
 
     MemberInfo(String name, int age)
@@ -40,26 +40,9 @@ public class MemberInfo extends CommonMember
         return this.name;
     }
 
-    public double getMass()
+    public double getWeight()
     {
-        return this.mass;
-    }
-
-
-    // 정보를 입력받는 함수 선언하기
-    public void setInfo()
-    {
-        // 이름 입력받기
-        System.out.println("name: ");
-        this.name = input.next();
-
-        // 나이 입력받기
-        System.out.println("age: ");
-        this.age = input.nextInt();
-
-        // 몸무게 입력받기
-        System.out.println("mass: ");
-        this.mass = input.nextDouble();
+        return this.weight;
     }
 
     // 저장된 정보를 출력하는 함수 선언하기
@@ -68,7 +51,7 @@ public class MemberInfo extends CommonMember
         System.out.print("\n");
         System.out.println("name: "+name);          // 이름
         System.out.println("age: "+age);            // 나이
-        System.out.println("mass: "+mass);          // 몸무게
+        System.out.println("weight: "+weight);      // 몸무게
         System.out.print("\n");
     }
 
@@ -77,6 +60,6 @@ public class MemberInfo extends CommonMember
     {
         this.name = null;       // 이름
         this.age = -1;          // 나이
-        this.mass = -1;         // 몸무게
+        this.weight = -1;       // 몸무게
     }
 }

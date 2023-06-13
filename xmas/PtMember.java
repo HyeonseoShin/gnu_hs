@@ -2,14 +2,14 @@ package xmas;
 
 public class PtMember extends MemberInfo
 {
-    static int qualify=1;
     int PTstartdate;
     int PTenddate;
+    int id;
 
-    public PtMember() {
-
+    int getId()
+    {
+        return id;
     }
-
     int getPTstartdate()
     {
         return PTstartdate;
@@ -19,12 +19,17 @@ public class PtMember extends MemberInfo
         return PTenddate;
     }
 
+    PtMember() {
+
+    }
+
     // Inputting the information of a PT Member
-    PtMember(String name, int age, double mass, int PTstartdate, int PTenddate)
+    PtMember(int id, String name, int age, double mass, int PTstartdate, int PTenddate)
     {
+        this.id=id;         // id
         this.name=name;     // Name
         this.age=age;       // Age
-        this.mass=mass;     // Weight
+        this.weight=weight; // Weight
         this.PTstartdate=PTstartdate;       // PT first day
         this.PTenddate=PTenddate;           // PT Last day
     }
@@ -34,7 +39,7 @@ public class PtMember extends MemberInfo
     {
         System.out.println("name: " + name);    // Name
         System.out.println("age: " + age);      // Age
-        System.out.println("mass: " + mass);    // Weight
+        System.out.println("weight: " + weight);// Weight
         System.out.println("PT start: " + PTstartdate);// PT First day
         System.out.println("PT finish: " + PTenddate); // PT Last day
         System.out.print("\n");
@@ -45,7 +50,9 @@ public class PtMember extends MemberInfo
     {
         System.out.println("name: " + name);    // Name
         System.out.println("age: " + age);      // Age
-        System.out.println("mass: " + mass);    // Weight
+        System.out.println("weight: " + weight);// Weight
         System.out.println("PT start: " + PTstartdate);// PT First day
+        System.out.println("PT finish: "+PTenddate);    // PT Last day
+        System.out.print("\n");
     }
 }

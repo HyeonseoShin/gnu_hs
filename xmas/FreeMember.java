@@ -6,6 +6,12 @@ public class FreeMember extends MemberInfo
 
     int firstuse;
     int term;
+    int id;
+
+    int getId()
+    {
+        return id;
+    }
 
     int getFirstuse()
     {
@@ -17,9 +23,15 @@ public class FreeMember extends MemberInfo
         return term;
     }
 
-    // Inputting the information of a member used free
-    FreeMember(String name, int age, int firstuse, int term)
+    FreeMember()
     {
+
+    }
+
+    // Inputting the information of a member used free
+    FreeMember(int id, String name, int age, int firstuse, int term)
+    {
+        this.id = id;
         this.name = name;       // Name
         this.age = age;         // Age
         this.firstuse = firstuse;   // Joined day

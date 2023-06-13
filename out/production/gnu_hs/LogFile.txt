@@ -39,4 +39,49 @@
 2023-05-29 21:48:59     Menu 4: View Members
 2023-05-29 21:48:59    Show Menu
 2023-05-29 21:49:21    Show Menu
-2023-05-29 21:49:34
+2023-05-29 21:49:342023-06-05 22:50:11    Show Menu
+2023-06-14 00:19:05    Show Menu
+2023-06-14 00:19:44    Show Menu
+2023-06-14 00:19:47    Menu 1
+2023-06-14 00:19:50    Menu1 : Add PT member
+2023-06-14 00:20:12    Show Menu
+2023-06-14 00:20:21    Menu 1
+2023-06-14 00:20:26    Menu1 : Add PT member
+2023-06-14 00:20:41    Show Menu
+2023-06-14 00:20:53    Menu 1
+2023-06-14 00:20:54    Menu1 : Add PT member
+2023-06-14 00:21:42   Member Added : 
+|| name : 주영민
+|| age : 20
+|| mass : 67.0
+|| PT start date : 20230301
+|| PT end date : 20230621
+2023-06-14 00:21:53    Menu1 : Add PT member
+2023-06-14 00:22:18    Show Menu
+2023-06-14 00:22:22    Menu 1
+2023-06-14 00:22:26    Menu1 : Add PT member
+2023-06-14 00:22:48   Member Added : 
+|| name : 주영민
+|| age : 20
+|| mass : 67.0
+|| PT start date : 20230302
+|| PT end date : 20230621
+2023-06-14 00:22:52    Menu1 : Add Free member
+2023-06-14 00:23:49   Member Added : 
+|| name : 배선영
+|| age : 28
+|| Start date : 20230501
+|| Available : 50 days
+2023-06-14 00:23:56    Menu1 : Add PT member
+2023-06-14 00:24:43    Show Menu
+2023-06-14 00:24:47    Menu 1
+2023-06-14 00:24:50    Menu1 : Add PT member
+2023-06-14 00:25:29   Member Added : 
+|| name : 진하준
+|| age : 33
+|| mass : 31.0
+|| PT start date : 20230101
+|| PT end date : 20230630
+2023-06-14 00:25:33    Show Menu
+2023-06-14 00:25:37     Menu 4: View Members
+2023-06-14 00:25:37    Show Menu

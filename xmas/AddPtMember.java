@@ -1,18 +1,20 @@
 package xmas;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-public class Menu1etc extends JFrame implements ActionListener
+public class AddPtMember extends JPanel implements ActionListener
 {
     WindowFrame frame;
 
-    JButton cancel = new JButton("cancel");
+    JButton cancel = new JButton("Cancel");
     JButton save = new JButton("Save");
 
-    public Menu1etc(WindowFrame frame)
+    ArrayList<PtMember> PtmemberList;
+
+    public AddPtMember(WindowFrame frame)
     {
         this.frame = frame;
 
@@ -30,34 +32,34 @@ public class Menu1etc extends JFrame implements ActionListener
         panel.add(labelname);
         panel.add(fieldname);
 
-        JLabel labelage = new JLabel("AGE: ", JLabel.TRAILING);
+        JLabel labelage = new JLabel("나이: ", JLabel.TRAILING);
         JTextField fieldage = new JTextField(10);
-        labelage.setLabelFor(fieldage);
+        labelname.setLabelFor(fieldage);
         panel.add(labelage);
         panel.add(fieldage);
 
-        JLabel labelweight = new JLabel("WEIGHT: ", JLabel.TRAILING);
-        JTextField fieldweight = new JTextField(10);
-        labelage.setLabelFor(fieldweight);
-        panel.add(labelweight);
-        panel.add(fieldweight);
-
-        JLabel labelstart = new JLabel("PT start date: ", JLabel.TRAILING);
+        JLabel labelstart = new JLabel("PT 시작일: ", JLabel.TRAILING);
         JTextField fieldstart = new JTextField(10);
-        labelstart.setLabelFor(fieldstart);
+        labelname.setLabelFor(fieldstart);
         panel.add(labelstart);
         panel.add(fieldstart);
 
-        JLabel labelend = new JLabel("PT end date: ", JLabel.TRAILING);
+        JLabel labelend = new JLabel("PT 종료일: ", JLabel.TRAILING);
         JTextField fieldend = new JTextField(10);
-        labelend.setLabelFor(fieldend);
+        labelname.setLabelFor(fieldend);
         panel.add(labelend);
         panel.add(fieldend);
+
+        JLabel labelweight = new JLabel("시작 몸무게: ", JLabel.TRAILING);
+        JTextField fieldweight = new JTextField(10);
+        labelname.setLabelFor(fieldweight);
+        panel.add(labelweight);
+        panel.add(fieldweight);
 
         panel.add(cancel);
         panel.add(save);
 
-        SpringUtilities.makeCompactGrid(panel, 6, 2, 6, 6, 6, 6);
+        SpringUtilities.makeCompactGrid(panel, 6, 2, 6, 6, 6 ,6 );
 
         this.add(panel);
         this.setVisible(true);
@@ -65,7 +67,7 @@ public class Menu1etc extends JFrame implements ActionListener
 
     public void actionPerformed(ActionEvent e)
     {
-        JButton bt = (JButton)e.getSource();
+        JButton bt = (JButton) e.getSource();
 
         if(bt == save)
         {
